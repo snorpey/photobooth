@@ -1,4 +1,5 @@
 /*global define*/
+// todo: update to new format
 define(
 	[ 'vec' ],
 	function( vec )
@@ -15,7 +16,6 @@ define(
 
 		function gotCamData( data )
 		{
-			console.log( 'gotCamData' );
 			var instructions = getInstructions( data.data );
 
 			for ( var key in instructions )

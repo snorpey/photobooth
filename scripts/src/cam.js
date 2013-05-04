@@ -10,7 +10,7 @@ define(
 		var video;
 
 		var counter = 0;
-		var framerate = 2;
+		var framerate = 10;
 
 		function init( shared )
 		{
@@ -21,8 +21,6 @@ define(
 			if ( hasWebcamAccess() )
 			{
 				var cam_options = { video: true };
-
-				console.log( 'starting video record' );
 
 				video = $( '#cam-video' );
 				video.click( stopCam );
@@ -35,7 +33,7 @@ define(
 
 			else
 			{
-				console.log( 'NO ACCESS' );
+				console.log( 'unfortunately, i can\'t access your camera.' );
 			}
 		}
 
@@ -47,9 +45,7 @@ define(
 
 			video.attr( { src: cam_url } );
 
-			console.log( 'CAM cam-started' );
-
-			//signals['cam-started'].dispatch();
+			signals['cam-started'].dispatch();
 		}
 
 		function failed( event )
@@ -64,7 +60,6 @@ define(
 				if ( counter >= framerate )
 				{
 					counter = 0;
-
 
 					ctx.drawImage( video[0], 0, 0 );
 
@@ -84,7 +79,7 @@ define(
 		function stopCam()
 		{
 			video[0].pause();
-			video[0].src = "";
+			video[0].src = '';
 		}
 
 		// gf: http://www.html5rocks.com/en/tutorials/getusermedia/intro/
