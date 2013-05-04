@@ -23,12 +23,3 @@ $RECYCLE.BIN/
 
 # SublimeText project files
 *.sublime-workspace
-
-#npm
-node_modules
-
-#prototypes is separate repo
-prototypes/
-
-#ignore some files/folders
-[ignore]*
