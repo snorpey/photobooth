@@ -7,6 +7,7 @@ define(
 		var valid_value_types = [ 'string', 'number' ];
 		var valid_shapes = [ 'rect', 'circle', 'line' ];
 		var reserved_keys = [ 'updated' ];
+		var flush = false;
 
 		function init( shared )
 		{
@@ -14,10 +15,18 @@ define(
 
 			signals['instructed'].add( checkInstructions );
 			signals['looped'].add( drawInstructions );
+			signals['input-updated'].add( flushInstructions );
 		}
 
 		function checkInstructions( obj )
 		{
+			if ( flush )
+			{
+				instructions = { };
+
+				flush = false;
+			}
+
 			for ( var id in obj )
 			{
 				if ( isValidInstruction( obj[id] ) )
@@ -67,6 +76,11 @@ define(
 		function removeInstruction( id )
 		{
 			instructions[id] = undefined;
+		}
+
+		function flushInstructions()
+		{
+			flush = true;
 		}
 
 		function drawInstructions()
