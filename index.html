@@ -2,11 +2,27 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>portfolio homescreen prototype</title>
+		<title>photobooth</title>
 		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<canvas id="homescreen"></canvas>
+		<div class="center-wrapper">
+			<ul class="controls">
+				<li class="control-item control-foreground-color">
+					<label class="control-label one-line" for="foreground-color">foreground color</label>
+					<input class="control control-color" type="color" id="foreground-color" value="#cccccc" />
+				</li>
+				<li class="control-item control-background-color">
+					<label class="control-label one-line" for="background-color">background color</label>
+					<input class="control control-color" type="color" id="background-color" value="#ffffff" />
+				</li>
+			</ul>
+			<div class="canvas-wrapper">
+				<canvas id="homescreen"></canvas>
+				<button class="button" id="screenshot-button">take screenshot</a>
+			</div>
+			<ul class="gallery"></ul>
+		</div>
 		<video autoplay id="cam-video"></video>
 		<script type="text/javascript" src="scripts/lib/require-2.1.4.js" data-main="scripts/src/main"></script>
 	</body>

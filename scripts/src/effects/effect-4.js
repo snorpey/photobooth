@@ -1,4 +1,5 @@
 /*global define*/
+// todo: update to new format
 define(
 	[ 'vec' ],
 	function( vec )

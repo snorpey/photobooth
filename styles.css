@@ -1,0 +1,167 @@
+*
+{
+	margin: 0;
+	padding: 0;
+}
+
+body, html
+{
+	height: 100%;
+	min-height: 100%;
+}
+
+body
+{
+	font-family: sans-serif;
+	font-size: 12px;
+	color: #333;
+	overflow: hidden;
+}
+
+.button
+{
+	background-color: #06f;
+	padding: 5px 9px;
+	display: inline-block;
+	color: #fff;
+	font-weight: normal;
+	border-radius: 2px;
+	cursor: pointer;
+	border: none;
+	font-family: sans-serif;
+}
+
+a.button
+{
+	text-decoration: none;
+}
+
+.controls
+{
+	position: absolute;
+	width: 150px;
+	left: -180px;
+}
+
+	.control-item
+	{
+		display: none;
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px #efefef solid;
+		float: left;
+		clear: both;
+		width: 100%;
+	}
+
+		.control-item.is-active
+		{
+			display: block;
+		}
+
+	.control-label
+	{
+		display: block;
+		margin-bottom: 5px;
+
+	}
+
+	.control-label.one-line
+	{
+		float: left;
+		line-height: 30px;
+	}
+
+	.control-color
+	{
+		display: block;
+		border: none;
+		width: 30px;
+		height: 30px;
+		float: right;
+	}
+
+.center-wrapper
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -240px;
+	margin-left: -340px;
+	width: 5000px;
+	transition: margin-left 0.5s;
+}
+
+	.canvas-wrapper
+	{
+		float: left;
+		position: relative;
+	}
+
+		#homescreen
+		{
+			display: block;
+			opacity: 0;
+			transition: opacity 0.2s;
+			border: 1px #ccc solid;
+		}
+
+		.center-wrapper.is-active #homescreen
+		{
+			opacity: 1;
+		}
+
+		#screenshot-button
+		{
+			position: absolute;
+			top: 50%;
+			left: 280px;
+			margin-top: -10px;
+			display: none;
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+
+		.center-wrapper.is-active #screenshot-button
+		{
+			display: block;
+		}
+
+		.canvas-wrapper:hover #screenshot-button
+		{
+			opacity: 1;
+		}
+
+		.gallery
+		{
+			float: left;
+		}
+
+			.gallery-item
+			{
+				float: left;
+				max-width: 640px;
+				transition: max-width 0.5s;
+				overflow: hidden;
+				position: relative;
+				border: 1px #efefef solid;
+				cursor: pointer;
+				margin-left: 30px;
+			}
+
+			.gallery-item.is-loading
+			{
+				max-width: 0;
+			}
+
+			.gallery-download
+			{
+				position: absolute;
+				bottom: 30px;
+				left: 30px;
+			}
+
+#cam-video
+{
+	display: none;
+}

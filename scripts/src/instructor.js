@@ -4,66 +4,64 @@ define(
 	{
 		var signals;
 		var instructions = { };
-		var types = [ 'string', 'number' ];
+		var valid_value_types = [ 'string', 'number' ];
+		var valid_shapes = [ 'rect', 'circle', 'line' ];
+		var reserved_keys = [ 'updated' ];
 
 		function init( shared )
 		{
 			signals = shared.signals;
 
-			signals['instructed'].add( updateInstruction );
+			signals['instructed'].add( checkInstructions );
 			signals['looped'].add( drawInstructions );
 		}
 
-		function updateInstruction( obj )
+		function checkInstructions( obj )
 		{
-			if (
-				typeof obj === 'object' &&
-				typeof obj.id !== 'undefined'
-			)
+			for ( var id in obj )
 			{
-				var id = obj.id;
-				var updated = false;
-
-				if ( instructions[id] )
+				if ( isValidInstruction( obj[id] ) )
 				{
-					for ( var key in instructions[id] )
+					if ( instructions[id] )
 					{
-						if (
-							key !== 'id' &&
-							key !== 'updated'
-						)
-						{
-							var new_value = obj[key];
-
-							if ( types.indexOf( typeof new_value ) !== -1 )
-							{
-								updated = true;
-								instructions[id][key] = new_value;
-							}
-						}
-					}
-
-					instructions[id].updated = updated;
-				}
-
-				else
-				{
-					if ( typeof obj === 'object' )
-					{
-						addInstruction( id, obj );
+						updateInstruction( id, obj[id] );
 					}
 
 					else
 					{
-						removeInstruction( id );
+						addInstruction( id, obj[id] );
 					}
 				}
+
+				else
+				{
+					removeInstruction( id );
+				}
 			}
+		}
+
+		function updateInstruction( id, obj )
+		{
+			var updated = false;
+
+			for ( var key in obj )
+			{
+				var new_value = obj[key];
+
+				if ( valid_value_types.indexOf( typeof new_value ) !== -1 )
+				{
+					updated = true;
+					instructions[id][key] = new_value;
+				}
+			}
+
+			instructions[id].updated = updated;
 		}
 
 		function addInstruction( id, obj )
 		{
 			instructions[id] = obj;
+			instructions[id].updated = true;
 		}
 
 		function removeInstruction( id )
@@ -74,6 +72,11 @@ define(
 		function drawInstructions()
 		{
 			signals['draw'].dispatch( instructions );
+		}
+
+		function isValidInstruction( obj )
+		{
+			return ( typeof obj === 'object' && valid_shapes.indexOf( obj.shape ) !== -1 );
 		}
 
 		var i = {

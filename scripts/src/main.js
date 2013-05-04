@@ -25,23 +25,41 @@ require(
 		'src/canvas',
 		'src/loop',
 		'src/instructor',
-		'src/stage',
 		'src/cam',
 		'src/effect',
+		'src/screenshot',
+		'src/gallery',
+		'src/controls',
 		'signals',
 		'jquery'
 	],
-	function( canvas, loop, instructor, stage, cam, effect, Signal, $ )
+	function(
+		canvas,
+		loop,
+		instructor,
+		cam,
+		effect,
+		screenshot,
+		gallery,
+		controls,
+		Signal,
+		$
+	)
 	{
 		var shared = {
 			win: $( window ),
 			doc: $( document ),
 			signals: {
-				'resized'    : new Signal(),
-				'looped'     : new Signal(),
-				'instructed' : new Signal(),
-				'draw'       : new Signal(),
-				'cam-data'   : new Signal()
+				'resized'        : new Signal(),
+				'looped'         : new Signal(),
+				'instructed'     : new Signal(),
+				'draw'           : new Signal(),
+				'cam-started'    : new Signal(),
+				'cam-data'       : new Signal(),
+				'capture'        : new Signal(),
+				'canvas-img'     : new Signal(),
+				'update-controls': new Signal(),
+				'input-updated'  : new Signal()
 			}
 		};
 
@@ -52,9 +70,11 @@ require(
 			canvas.init( shared );
 			loop.init( shared );
 			instructor.init( shared );
-			stage.init( shared );
 			cam.init( shared );
+			controls.init( shared );
 			effect.init( shared );
+			screenshot.init( shared );
+			gallery.init( shared );
 
 			$( window ).resize( resized );
 

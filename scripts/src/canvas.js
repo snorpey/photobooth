@@ -4,6 +4,7 @@ define(
 	function( $ )
 	{
 		var signals;
+		var wrapper = $( '.center-wrapper' );
 		var canvas = $( '#homescreen' );
 		var ctx = canvas[0].getContext( '2d' );
 		var size;
@@ -11,14 +12,11 @@ define(
 		function init( shared )
 		{
 			signals = shared.signals;
-
-			signals['resized'].add( resized );
 			signals['draw'].add( draw );
-		}
+			signals['cam-started'].add( activateCanvas );
+			signals['capture'].add( sendCapture );
 
-		function resized( size )
-		{
-			updateCanvasSize( size );
+			updateCanvasSize( { width: 640, height: 480 } );
 		}
 
 		function updateCanvasSize( new_size )
@@ -29,13 +27,23 @@ define(
 
 		function draw( instructions )
 		{
-			//clear();
+			clear();
 
 			for ( var key in instructions )
 			{
-				if ( typeof instructions[key] === 'object' )
+				if (
+					typeof instructions[key] === 'object' &&
+					instructions[key].updated
+				)
 				{
 					drawByInstruction( instructions[key], ctx );
+
+					//console.log( 'DRAW KEY', key );
+				}
+
+				else
+				{
+					//console.log( 'DONT DRAW', key );
 				}
 			}
 		}
@@ -46,17 +54,17 @@ define(
 			{
 				if ( typeof obj === 'object' )
 				{
-					if ( obj.type === 'line' )
+					if ( obj.shape === 'line' )
 					{
 						drawLine( obj, ctx );
 					}
 
-					if ( obj.type === 'circle' )
+					if ( obj.shape === 'circle' )
 					{
 						drawCircle( obj, ctx );
 					}
 
-					if ( obj.type === 'rect' )
+					if ( obj.shape === 'rect' )
 					{
 						drawRect( obj, ctx );
 					}
@@ -108,6 +116,23 @@ define(
 
 				ctx.clearRect( clr.x, clr.y, clr.width, clr.height );
 			}
+		}
+
+		function activateCanvas()
+		{
+			wrapper.addClass( 'is-active' );
+		}
+
+		function getImageUrlFromCanvas()
+		{
+			return canvas[0].toDataURL( 'image/png' );
+		}
+
+		function sendCapture()
+		{
+			var src = getImageUrlFromCanvas();
+
+			signals['canvas-img'].dispatch( src );
 		}
 
 		var canvas_manager = {
