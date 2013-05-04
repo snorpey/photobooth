@@ -1,10 +1,10 @@
 /*global define*/
 define(
 	[ 'vec' ],
-	function ( vec )
+	function( vec )
 	{
 		var supported_inputs = [ 'size' ];
-		var defaults = { size: 10 };
+		var defaults = { size: 40 };
 
 		function getInstructions( data, width, height, values )
 		{
@@ -24,7 +24,7 @@ define(
 				var x = s % width;
 				var y = Math.round( s / width );
 
-				items['cam-' + s] = {
+				items['cam-' + i] = {
 					pos: vec.create( x, y ),
 					color: rgbToHex( r, g, b ),
 					shape: 'rect',
