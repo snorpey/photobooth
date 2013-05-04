@@ -2,10 +2,12 @@
 define(
 	[
 		'src/effects/waterfall',
+		'src/effects/stripes-1',
 		'src/effects/cubes'
 	],
 	function (
 		waterfallFx,
+		stripes1Fx,
 		cubesFx
 	)
 	{
@@ -13,6 +15,7 @@ define(
 
 		var effects = {
 			cubes: cubesFx,
+			stripes_1: stripes1Fx,
 			waterfall: waterfallFx
 		};
 
