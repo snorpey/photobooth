@@ -1,10 +1,24 @@
 /*global define*/
 define(
-	[ 'src/effects/cubes' ],
-	function( cubesFx )
+	[
+		'src/effects/waterfall',
+		'src/effects/stripes-1',
+		'src/effects/cubes'
+	],
+	function (
+		waterfallFx,
+		stripes1Fx,
+		cubesFx
+	)
 	{
 		var signals;
-		var effects = { cubes: cubesFx };
+
+		var effects = {
+			cubes: cubesFx,
+			stripes_1: stripes1Fx,
+			waterfall: waterfallFx
+		};
+
 		var active_effect = 'cubes';
 		var effect = effects[active_effect];
 		var input_values = { };

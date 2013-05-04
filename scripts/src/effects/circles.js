@@ -1,39 +1,17 @@
 /*global define*/
-// todo: update to new format
 define(
 	[ 'vec' ],
 	function( vec )
 	{
-		var signals;
-		var width = 640;
+		var supported_inputs = [ 'size' ];
+		var defaults = { size: 40 };
 
-		function init( shared )
-		{
-			signals = shared.signals;
-
-			signals['cam-data'].add( gotCamData );
-		}
-
-		function gotCamData( data )
-		{
-			var instructions = getInstructions( data.data );
-
-			for ( var key in instructions )
-			{
-				signals['instructed'].dispatch( instructions[key] );
-			}
-		}
-
-		function getInstructions( data )
+		function getInstructions( data, width, height, values )
 		{
 			var items = { };
 			var len = data.length;
-			var size = 40;
+			var size = values.size || defaults.size;
 			var multiplicator = 4 * size;
-
-			var line_counter = 0;
-
-			// to lines
 
 			for ( var i = 0; i < len; i += 4 )
 			{
@@ -64,20 +42,17 @@ define(
 						items['cam-' + i] = {
 							pos: vec.create( pos_x, pos_y ),
 							color: hex( r, g, b ),
-							id: 'cam-' + i,
-							type: 'circle',
+							shape: 'circle',
 							rad: radius
 						};
 					}
-
-					console.log( l, radius );
 				}
 			}
 
 			return items;
 		}
 
-		//gf: http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+		// http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 		function componentToHex( c )
 		{
 			var hex = c.toString( 16 );
@@ -89,19 +64,12 @@ define(
 			return '#' + componentToHex( r ) + componentToHex( g ) + componentToHex( b );
 		}
 
+		// http://stackoverflow.com/a/596241/229189
 		function lightness( r, g, b )
 		{
-			//gf: http://stackoverflow.com/a/596241/229189
 			return ( r + r + b + g + g + g ) / 6;
 		}
 
-		var fx = {
-			init: init
-		};
-
-		return fx;
+		return { fx: getInstructions, input: supported_inputs };
 	}
 );
-
-// 1234  x = florri / 
-// 5678  y = i % width

@@ -10,7 +10,7 @@ define(
 		var video;
 
 		var counter = 0;
-		var framerate = 10;
+		var framerate = 1;
 
 		function init( shared )
 		{
