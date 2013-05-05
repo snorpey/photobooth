@@ -9,8 +9,6 @@ define(
 		var ctx = canvas[0].getContext( '2d' );
 		var size;
 
-		// todo: get canvas size from cam/image
-
 		function init( shared )
 		{
 			signals = shared.signals;
@@ -19,6 +17,15 @@ define(
 			signals['capture'].add( sendCapture );
 
 			updateCanvasSize( { width: 640, height: 480 } );
+
+			canvas.click( canvasClicked );
+		}
+
+		function canvasClicked( event )
+		{
+			event.preventDefault();
+
+			signals['capture'].dispatch();
 		}
 
 		function updateCanvasSize( new_size )
@@ -39,13 +46,6 @@ define(
 				)
 				{
 					drawByInstruction( instructions[key], ctx );
-
-					//console.log( 'DRAW KEY', key );
-				}
-
-				else
-				{
-					//console.log( 'DONT DRAW', key );
 				}
 			}
 		}
