@@ -1,4 +1,4 @@
-// gf: changed adding amd support:
+// changed adding amd support:
 // https://github.com/jcoglan/sylvester/issues/8
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {

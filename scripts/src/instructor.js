@@ -16,6 +16,7 @@ define(
 			signals['instructed'].add( checkInstructions );
 			signals['looped'].add( drawInstructions );
 			signals['input-updated'].add( flushInstructions );
+			signals['effect-updated'].add( flushInstructions );
 		}
 
 		function checkInstructions( obj )

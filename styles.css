@@ -18,6 +18,11 @@ body
 	overflow: hidden;
 }
 
+a
+{
+	color: #06f;
+}
+
 .button
 {
 	background-color: #06f;
@@ -80,6 +85,80 @@ a.button
 		height: 30px;
 		float: right;
 	}
+
+	.control-range
+	{
+		width: 100%;
+		background: #cecece;
+		height: 1px;
+		margin-top: 10px;
+		cursor: pointer;
+		/*-webkit-transform: translate3d(0px, 0px, 0px);*/
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-ms-appearance: none;
+		-o-appearance: none;
+		appearance: none;
+	}
+
+		.control-range::-webkit-slider-thumb
+		{
+			background-color: #06f;
+			height: 10px;
+			width: 10px;
+			cursor: pointer;
+			border-radius: 10px;
+			-webkit-appearance: none;
+		}
+
+		.control-range::-moz-slider-thumb
+		{
+			background-color: #06f;
+			height: 10px;
+			width: 10px;
+			cursor: pointer;
+			border-radius: 10px;
+			-moz-appearance: none;
+		}
+
+	.filter-wrapper
+	{
+		display: block;
+		float: left;
+		clear: both;
+		width: 100%;
+	}
+
+		.sidebar-headline
+		{
+			font-size: 12px;
+			color: #000;
+			font-weight: normal;
+			margin-bottom: 15px;
+		}
+
+		.filter-item
+		{
+			display: block;
+			margin-bottom: 5px;
+			float: left;
+			margin-right: 5px;
+		}
+
+			.filter
+			{
+				display: inline-block;
+				padding: 5px 9px;
+				text-decoration: none;
+				background-color: #eaeaea;
+				border-radius: 2px;
+			}
+
+			.filter.is-active
+			{
+				background-color: #06f;
+				color: #fff;
+			}
 
 .center-wrapper
 {
