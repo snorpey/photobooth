@@ -21,6 +21,7 @@ body
 a
 {
 	color: #06f;
+	text-decoration: none;
 }
 
 .button
@@ -41,12 +42,37 @@ a.button
 	text-decoration: none;
 }
 
+.header
+{
+	position: absolute;
+	left: 50%;
+	margin-left: -340px;
+	width: 640px;
+	top: 20px;
+	line-height: 20px;
+	color: #666;
+}
+
+	.header .headline
+	{
+		display: inline;
+		font-weight: bold;
+		font-size: 12px;
+	}
+
 .controls
 {
 	position: absolute;
 	width: 150px;
 	left: -180px;
+	opacity: 0;
+	transition: opacity 0.3s;
 }
+
+	.controls.is-active
+	{
+		opacity: 1;
+	}
 
 	.control-item
 	{
@@ -239,16 +265,6 @@ a.button
 				bottom: 30px;
 				left: 30px;
 			}
-
-.footer
-{
-	position: absolute;
-	left: 50%;
-	margin-left: -340px;
-	width: 640px;
-	bottom: 20px;
-	opacity: 0.5;
-}
 
 #cam-video
 {
