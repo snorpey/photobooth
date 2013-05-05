@@ -20,6 +20,25 @@ define(
 			signals['canvas-img'].add( addCanvasImage );
 			images.click( imageClicked );
 			canvas.click( moveToStart );
+			shared.doc.keydown( keyUpped );
+		}
+
+		function keyUpped( event )
+		{
+			if ( item_count > 0 )
+			{
+				if ( event.which === 37 )
+				{
+					moveWrapperToIndex( current_index - 1 );
+					event.preventDefault();
+				}
+
+				if ( event.which === 39 )
+				{
+					moveWrapperToIndex( current_index + 1 );
+					event.preventDefault();
+				}
+			}
 		}
 
 		function addCanvasImage( src )
@@ -63,6 +82,11 @@ define(
 
 				moveWrappperTo( offset );
 				current_index = index;
+			}
+
+			if ( index === -1 )
+			{
+				moveToStart();
 			}
 		}
 
