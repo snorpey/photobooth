@@ -1,6 +1,5 @@
 /*global require, requirejs, define, Modernizr, _basepath_ */
-// gf: http://requirejs.org/docs/api.html#config
-// 
+// http://requirejs.org/docs/api.html#config 
 var path = typeof _basepath_ === 'string' ? _basepath_ + '/' : '';
 requirejs.config(
 	{
@@ -59,7 +58,8 @@ require(
 				'capture'        : new Signal(),
 				'canvas-img'     : new Signal(),
 				'update-controls': new Signal(),
-				'input-updated'  : new Signal()
+				'input-updated'  : new Signal(),
+				'effect-updated' : new Signal()
 			}
 		};
 
