@@ -219,12 +219,9 @@ a.button
 		#screenshot-button
 		{
 			position: absolute;
-			top: 50%;
-			left: 280px;
-			margin-top: -10px;
+			bottom: 30px;
+			left: 30px;
 			display: none;
-			opacity: 0;
-			transition: opacity 0.3s;
 		}
 
 		.center-wrapper.is-active #screenshot-button
@@ -232,14 +229,10 @@ a.button
 			display: block;
 		}
 
-		.canvas-wrapper:hover #screenshot-button
-		{
-			opacity: 1;
-		}
-
 		.gallery
 		{
 			float: left;
+			-webkit-transform: translateZ(0);
 		}
 
 			.gallery-item
