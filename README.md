@@ -5,7 +5,9 @@ Photobooth
 
 This is a little experiment to explore the possibilities of the getUserMedia and canvas APIs in JavaScript. It allows to live edit your webcam feed and take screenshots. That's all.
 
-(Only tested in Google Chrome. Requires webcam to work.)
+Only tested in Google Chrome. Requires webcam to work.
+
+[Online demo](http://snorpey.github.io/photobooth/)
 
 Things to do:
 ---
