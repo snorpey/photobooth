@@ -240,6 +240,16 @@ a.button
 				left: 30px;
 			}
 
+.footer
+{
+	position: absolute;
+	left: 50%;
+	margin-left: -340px;
+	width: 640px;
+	bottom: 20px;
+	opacity: 0.5;
+}
+
 #cam-video
 {
 	display: none;
