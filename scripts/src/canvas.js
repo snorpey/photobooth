@@ -9,8 +9,6 @@ define(
 		var ctx = canvas[0].getContext( '2d' );
 		var size;
 
-		// todo: get canvas size from cam/image
-
 		function init( shared )
 		{
 			signals = shared.signals;
@@ -48,13 +46,6 @@ define(
 				)
 				{
 					drawByInstruction( instructions[key], ctx );
-
-					//console.log( 'DRAW KEY', key );
-				}
-
-				else
-				{
-					//console.log( 'DONT DRAW', key );
 				}
 			}
 		}
