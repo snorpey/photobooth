@@ -48,7 +48,7 @@ a.button
 	left: 50%;
 	margin-left: -340px;
 	width: 640px;
-	top: 20px;
+	top: 50px;
 	line-height: 20px;
 	color: #666;
 }
@@ -189,9 +189,8 @@ a.button
 .center-wrapper
 {
 	position: absolute;
-	top: 50%;
+	top: 160px;
 	left: 50%;
-	margin-top: -240px;
 	margin-left: -340px;
 	width: 5000px;
 	transition: margin-left 0.5s;
