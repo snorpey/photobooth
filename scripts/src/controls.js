@@ -22,6 +22,7 @@ define(
 			setTimeout( function(){ activateFilter( 'cubes' ); } ,10 );
 
 			signals['update-controls'].add( updateControls );
+			signals['cam-started'].add( activateControls );
 		}
 
 		function controlValueChanged( event )
@@ -93,6 +94,11 @@ define(
 				.addClass( 'is-active' );
 
 			signals['effect-updated'].dispatch( name );
+		}
+
+		function activateControls()
+		{
+			wrapper.addClass( 'is-active' );
 		}
 
 		function getControlIds()

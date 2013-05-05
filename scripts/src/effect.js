@@ -1,37 +1,28 @@
 /*global define*/
 define(
 	[
-		'src/effects/waterfall',
-		'src/effects/pixelate',
-		'src/effects/cubes',
 		'src/effects/circles',
-		'src/effects/circles-2',
+		'src/effects/cubes',
+		'src/effects/pixelate',
 		'src/effects/stripes-1',
-		'src/effects/stripes-2',
-		'src/effects/stripes-3'
+		'src/effects/stripes-2'
 	],
 	function (
-		waterfallFx,
-		pixelateFx,
-		cubesFx,
 		circlesFx,
-		circles2Fx,
+		cubesFx,
+		pixelateFx,
 		stripes1Fx,
-		stripes2Fx,
-		stripes3Fx
+		stripes2Fx
 	)
 	{
 		var signals;
 
 		var effects = {
-			waterfall: waterfallFx,
 			pixelate: pixelateFx,
 			cubes: cubesFx,
 			circles: circlesFx,
-			circles2: circles2Fx,
 			stripes1: stripes1Fx,
-			stripes2: stripes2Fx,
-			stripes3: stripes3Fx
+			stripes2: stripes2Fx
 		};
 
 		var active_effect = 'cubes';
