@@ -19,6 +19,15 @@ define(
 			signals['capture'].add( sendCapture );
 
 			updateCanvasSize( { width: 640, height: 480 } );
+
+			canvas.click( canvasClicked );
+		}
+
+		function canvasClicked( event )
+		{
+			event.preventDefault();
+
+			signals['capture'].dispatch();
 		}
 
 		function updateCanvasSize( new_size )
