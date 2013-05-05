@@ -48,13 +48,6 @@ define(
 				)
 				{
 					drawByInstruction( instructions[key], ctx );
-
-					//console.log( 'DRAW KEY', key );
-				}
-
-				else
-				{
-					//console.log( 'DONT DRAW', key );
 				}
 			}
 		}
