@@ -30,7 +30,7 @@ define(
 
 			item_html += '<li class="gallery-item gallery-item-' + item_count + ' is-loading">';
 			item_html +=     '<img class="gallery-image" src="' + src + '" alt="Gallery Image ' + item_count + '" />';
-			item_html +=     '<a class="gallery-download button" href="' + src + '">download</a>';
+			item_html +=     '<a class="gallery-download button" href="' + src + '" target="_blank">download</a>';
 			item_html += '</li>';
 
 			gallery.prepend( item_html );
