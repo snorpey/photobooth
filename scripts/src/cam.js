@@ -82,7 +82,7 @@ define(
 			video[0].src = '';
 		}
 
-		// gf: http://www.html5rocks.com/en/tutorials/getusermedia/intro/
+		// http://www.html5rocks.com/en/tutorials/getusermedia/intro/
 		function hasWebcamAccess()
 		{
 			return !! (
