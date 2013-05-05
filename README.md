@@ -10,11 +10,11 @@ This is a little experiment to explore the possibilities of the getUserMedia and
 Things to do:
 ---
 
-* fallback to using images if webcam is notd available 
+* fallback to using images if webcam is not available 
 * add more effects
 * add descriptiond
 * make canvas drawing code more flexible
-* speed up canvasdrawing code
+* speed up canvas drawing code
 
 Third party libraries used in this project:
 ---
