@@ -3,14 +3,14 @@ define(
 	[ 'vec' ],
 	function( vec )
 	{
-		var supported_inputs = [ 'foreground-color', 'background-color' ];
-		var defaults = { 'foreground-color': '#ccc', 'background-color': '#fff' };
+		var supported_inputs = [ 'foreground-color', 'background-color', 'size' ];
+		var defaults = { 'foreground-color': '#ccc', 'background-color': '#fff', 'size': 8 };
 
 		function getInstructions( data, width, height, values )
 		{
 			var items = { };
 			var len = data.length;
-			var size = 8;
+			var size = values.size || defaults.size;
 			var min_size = size * 0.2;
 
 			items['bg'] = {
