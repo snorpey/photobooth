@@ -25,3 +25,5 @@ Third party libraries used in this project:
 * [require js](http://requirejs.org/)
 * [js signals](http://millermedeiros.github.io/js-signals/)
 * [sylvester](http://sylvester.jcoglan.com/)
+* [spectrum](http://bgrins.github.io/spectrum/)
+* [html5slider](http://frankyan.com/labs/html5slider/)
