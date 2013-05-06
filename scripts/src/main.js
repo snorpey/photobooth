@@ -11,7 +11,10 @@ requirejs.config(
 			'signals'   : 'lib/signals-1.0.0',
 			'masonry'   : 'lib/jquery.masonry.2.1.08.min',
 			'sylvester' : 'lib/sylvester-1.0.3.mod',
-			'vec'       : 'aux/vec'
+			'vec'       : 'aux/vec',
+			'raf'       : 'lib/raf',
+			'gum'       : 'lib/getusermedia',
+			'url'       : 'lib/url'
 		},
 		shim: {
 			'masonry' : [ 'jquery' ]
@@ -30,7 +33,10 @@ require(
 		'src/gallery',
 		'src/controls',
 		'signals',
-		'jquery'
+		'jquery',
+		'raf',
+		'gum',
+		'url'
 	],
 	function(
 		canvas,
