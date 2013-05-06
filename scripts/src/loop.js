@@ -10,7 +10,7 @@ define(
 		{
 			signals = shared.signals;
 
-			startLoop();
+			signals['cam-started'].add( startLoop );
 		}
 
 		function startLoop()
@@ -42,4 +42,4 @@ define(
 
 		return loop;
 	}
-)
+);
