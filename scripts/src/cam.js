@@ -7,7 +7,7 @@ define(
 		var stream;
 		var canvas = document.createElement( 'canvas' );
 		var ctx = canvas.getContext( '2d' );
-		var video;
+		var video = document.createElement( 'video' );
 
 		var counter = 0;
 		var framerate = 1;
@@ -22,13 +22,12 @@ define(
 			{
 				var cam_options = { video: true };
 
-				video = $( '#cam-video' );
-				video.click( stopCam );
+				document.body.appendChild( video );
+				video.id = 'cam-video';
 
 				signals['looped'].add( sendCamData );
 
-				normalize();
-				navigator.webkitGetUserMedia( cam_options, gotCamData, failed );
+				navigator.getUserMedia( cam_options, gotCamData, failed );
 			}
 
 			else
@@ -39,16 +38,35 @@ define(
 
 		function gotCamData( media_stream )
 		{
-			var cam_url = window.URL.createObjectURL( media_stream );
+			var source;
+
+			if ( window.webkitURL )
+			{
+				source = window.URL.createObjectURL( media_stream );
+			}
+
+			else
+			{
+				source = media_stream;
+			}
+
+			if ( video.mozSrcObject !== undefined )
+			{
+				video.mozSrcObject = source;
+			}
+
+			else
+			{
+				video.src = source;
+			}
 
 			stream = media_stream;
 
-			video.attr( { src: cam_url } );
-
-			signals['cam-started'].dispatch();
+			video.addEventListener( 'loadedmetadata', signals['cam-started'].dispatch );
+			video.play();
 		}
 
-		function failed( event )
+		function failed( error )
 		{
 			console.log( 'failed.' );
 		}
@@ -59,14 +77,21 @@ define(
 			{
 				if ( counter >= framerate )
 				{
-					counter = 0;
+					try {
+						counter = 0;
 
-					ctx.drawImage( video[0], 0, 0 );
+						ctx.drawImage( video, 0, 0 );
 
-					var data = ctx.getImageData( 0, 0, canvas.width, canvas.height );
-					var image = canvas.toDataURL( 'image/png' );
+						var data = ctx.getImageData( 0, 0, canvas.width, canvas.height );
+						var image = canvas.toDataURL( 'image/png' );
 
-					signals['cam-data'].dispatch( data );
+						signals['cam-data'].dispatch( data );
+					}
+
+					catch ( error )
+					{
+						console.log( error );
+					}
 				}
 
 				else
@@ -76,27 +101,10 @@ define(
 			}
 		}
 
-		function stopCam()
-		{
-			video[0].pause();
-			video[0].src = '';
-		}
-
 		// http://www.html5rocks.com/en/tutorials/getusermedia/intro/
 		function hasWebcamAccess()
 		{
-			return !! (
-				navigator.getUserMedia ||
-				navigator.webkitGetUserMedia ||
-				navigator.mozGetUserMedia ||
-				navigator.msGetUserMedia
-			);
-		}
-
-		function normalize()
-		{
-			window.URL = window.URL || window.webkitURL;
-			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+			return !! navigator.getUserMedia;
 		}
 
 		var cam = { init: init };
