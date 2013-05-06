@@ -14,7 +14,9 @@ requirejs.config(
 			'vec'       : 'aux/vec',
 			'raf'       : 'lib/raf',
 			'gum'       : 'lib/getusermedia',
-			'url'       : 'lib/url'
+			'url'       : 'lib/url',
+			'colorpick' : 'lib/spectrum',
+			'slider'    : 'lib/html5slider'
 		},
 		shim: {
 			'masonry' : [ 'jquery' ]
@@ -36,7 +38,9 @@ require(
 		'jquery',
 		'raf',
 		'gum',
-		'url'
+		'url',
+		'colorpick',
+		'slider'
 	],
 	function(
 		canvas,
