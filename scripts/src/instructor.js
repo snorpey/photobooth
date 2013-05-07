@@ -4,8 +4,7 @@ define(
 	{
 		var signals;
 		var instructions = { };
-		var valid_value_types = [ 'string', 'number' ];
-		var valid_shapes = [ 'rect', 'circle', 'line' ];
+		var valid_shapes = [ 'rect', 'circle', 'line', 'image-data', 'image' ];
 		var reserved_keys = [ 'updated' ];
 		var flush = false;
 
@@ -58,7 +57,10 @@ define(
 			{
 				var new_value = obj[key];
 
-				if ( valid_value_types.indexOf( typeof new_value ) !== -1 )
+				if (
+					typeof new_value !== 'undefined' &&
+					new_value !== instructions[id][key]
+				)
 				{
 					updated = true;
 					instructions[id][key] = new_value;
