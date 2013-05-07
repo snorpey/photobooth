@@ -138,9 +138,7 @@ define(
 
 		function drawImage( d, ctx )
 		{
-			//d.image.onload = function() {
 			ctx.drawImage( d.image, d.pos.elements[0], d.pos.elements[1] );
-			//};
 		}
 
 		function clear( obj )
