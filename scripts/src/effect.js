@@ -5,14 +5,16 @@ define(
 		'src/effects/cubes',
 		'src/effects/pixelate',
 		'src/effects/stripes-1',
-		'src/effects/stripes-2'
+		'src/effects/stripes-2',
+		'src/effects/glitch-jpg'
 	],
 	function (
 		circlesFx,
 		cubesFx,
 		pixelateFx,
 		stripes1Fx,
-		stripes2Fx
+		stripes2Fx,
+		glitchFx
 	)
 	{
 		var signals;
@@ -22,7 +24,8 @@ define(
 			cubes: cubesFx,
 			circles: circlesFx,
 			stripes1: stripes1Fx,
-			stripes2: stripes2Fx
+			stripes2: stripes2Fx,
+			glitch: glitchFx
 		};
 
 		var active_effect = 'cubes';
@@ -53,9 +56,8 @@ define(
 		{
 			if ( typeof effect === 'object' )
 			{
-				var instructions = effect.fx( data.data, data.width, data.height, input_values );
+				var instructions = effect.fx( data, input_values );
 
-				signals['instructed'].dispatch( instructions );
 				signals['instructed'].dispatch( instructions );
 			}
 		}
