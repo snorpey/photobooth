@@ -77,9 +77,9 @@ define(
 			{
 				if ( counter >= framerate )
 				{
-					try {
-						counter = 0;
+					counter = 0;
 
+					try {
 						ctx.drawImage( video, 0, 0 );
 
 						var data = ctx.getImageData( 0, 0, canvas.width, canvas.height );
