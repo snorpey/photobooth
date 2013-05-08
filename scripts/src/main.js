@@ -9,7 +9,6 @@ requirejs.config(
 		paths: {
 			'jquery'    : 'lib/jquery-1.9.1-deprecated-effects',
 			'signals'   : 'lib/signals-1.0.0',
-			'masonry'   : 'lib/jquery.masonry.2.1.08.min',
 			'sylvester' : 'lib/sylvester-1.0.3.mod',
 			'vec'       : 'aux/vec',
 			'raf'       : 'lib/raf',
@@ -19,7 +18,6 @@ requirejs.config(
 			'slider'    : 'lib/html5slider'
 		},
 		shim: {
-			'masonry' : [ 'jquery' ],
 			'colorpick'  : [ 'jquery' ]
 		}
 	}
