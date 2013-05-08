@@ -19,9 +19,37 @@
 					<label class="control-label one-line" for="background-color">background color</label>
 					<input class="control control-color" type="color" id="background-color" value="#ffffff" />
 				</li>
-				<li class="control-item control-background-color">
-					<label class="control-label" for="background-color">size</label>
+				<li class="control-item control-size">
+					<label class="control-label" for="size">size</label>
 					<input class="control control-range" type="range" id="size" value="20" min="4" max="80" />
+				</li>
+				<li class="control-item control-brightness">
+					<label class="control-label" for="brightness">brightness</label>
+					<input class="control control-range" type="range" id="brightness" value="50" min="0" max="100" step="2" />
+				</li>
+				<li class="control-item control-saturation">
+					<label class="control-label" for="saturation">saturation</label>
+					<input class="control control-range" type="range" id="saturation" value="50" min="1" max="100" step="2" />
+				</li>
+				<li class="control-item control-contrast">
+					<label class="control-label" for="contrast">contrast</label>
+					<input class="control control-range" type="range" id="contrast" value="50" min="1" max="100" step="2" />
+				</li>
+				<li class="control-item control-hue">
+					<label class="control-label" for="hue">hue</label>
+					<input class="control control-range" type="range" id="hue" value="0" min="0" max="100" step="2" />
+				</li>
+				<li class="control-item control-glitch-iterations">
+					<label class="control-label" for="glitch-iterations">iterations</label>
+					<input class="control control-range" type="range" id="glitch-iterations" value="20" min="0" max="100" step="10" />
+				</li>
+				<li class="control-item control-glitch-seed">
+					<label class="control-label" for="glitch-seed">seed</label>
+					<input class="control control-range" type="range" id="glitch-seed" value="20" min="0" max="100" />
+				</li>
+				<li class="control-item control-glitch-quality">
+					<label class="control-label" for="glitch-quality">quality</label>
+					<input class="control control-range" type="range" id="glitch-quality" value="20" min="1" max="99" />
 				</li>
 				<li class="filter-wrapper">
 					<h2 class="sidebar-headline">effects</h2>
@@ -31,6 +59,8 @@
 						<li class="filter-item"><a href="#circles" class="filter">circles</a></li>
 						<li class="filter-item"><a href="#stripes1" class="filter">stripes 1</a></li>
 						<li class="filter-item"><a href="#stripes2" class="filter">stripes 2</a></li>
+						<li class="filter-item"><a href="#glitch" class="filter">glitch</a></li>
+						<li class="filter-item"><a href="#color" class="filter">color filters</a></li>
 					</ul>
 				</li>
 			</ul>
