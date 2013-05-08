@@ -6,7 +6,8 @@ define(
 		'src/effects/pixelate',
 		'src/effects/stripes-1',
 		'src/effects/stripes-2',
-		'src/effects/glitch-jpg'
+		'src/effects/glitch-jpg',
+		'src/effects/color'
 	],
 	function (
 		circlesFx,
@@ -14,7 +15,8 @@ define(
 		pixelateFx,
 		stripes1Fx,
 		stripes2Fx,
-		glitchFx
+		glitchFx,
+		colorFx
 	)
 	{
 		var signals;
@@ -25,7 +27,8 @@ define(
 			circles: circlesFx,
 			stripes1: stripes1Fx,
 			stripes2: stripes2Fx,
-			glitch: glitchFx
+			glitch: glitchFx,
+			color: colorFx
 		};
 
 		var active_effect = 'cubes';
