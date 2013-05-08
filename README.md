@@ -1,7 +1,7 @@
 Photobooth
 ==========
 
-![photobooth screenshot](https://dl.dropboxusercontent.com/u/1098704/Screenshots/github-photobooth.png)
+[![photobooth screenshot](https://dl.dropboxusercontent.com/u/1098704/Screenshots/github-photobooth.png)](http://snorpey.github.io/photobooth)
 
 This is a little experiment to explore the possibilities of the getUserMedia and canvas APIs in JavaScript. It allows to live edit your webcam feed and take screenshots. That's all.
 
