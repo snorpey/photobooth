@@ -3,15 +3,26 @@ define(
 	[ 'vec' ],
 	function( vec )
 	{
-		var supported_inputs = [ 'size' ];
-		var defaults = { size: 40 };
+		var supported_inputs = [ 'background-color', 'size' ];
+		var defaults = { 'background-color': '#fff', size: 40 };
 
-		function getInstructions( data, width, height, values )
+		function getInstructions( image_data, input )
 		{
 			var items = { };
+			var width = image_data.width;
+			var height = image_data.height;
+			var data = image_data.data;
 			var len = data.length;
-			var size = values.size || defaults.size;
+			var size = input.size || defaults.size;
 			var multiplicator = 4 * size;
+
+			items['bg'] = {
+				pos: vec.create( 0, 0 ),
+				color: input['background-color'] || defaults['background-color'],
+				shape: 'rect',
+				width: width,
+				height: height
+			};
 
 			for ( var i = 0; i < len; i += multiplicator )
 			{

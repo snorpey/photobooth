@@ -7,6 +7,8 @@ define(
 		var wrapper = $( '.center-wrapper' );
 		var canvas = $( '#homescreen' );
 		var ctx = canvas[0].getContext( '2d' );
+		var is_clearing = true;
+		var not_clearing_effects = [ 'glitch' ];
 		var size;
 
 		function init( shared )
@@ -15,6 +17,7 @@ define(
 			signals['draw'].add( draw );
 			signals['cam-started'].add( activateCanvas );
 			signals['capture'].add( sendCapture );
+			signals['effect-updated'].add( updateClearing );
 
 			updateCanvasSize( { width: 640, height: 480 } );
 
@@ -34,9 +37,17 @@ define(
 			size = new_size;
 		}
 
+		function updateClearing( effect_name )
+		{
+			is_clearing = not_clearing_effects.indexOf( effect_name ) === -1;
+		}
+
 		function draw( instructions )
 		{
-			clear();
+			if ( is_clearing )
+			{
+				clear();
+			}
 
 			for ( var key in instructions )
 			{
@@ -69,6 +80,16 @@ define(
 					if ( obj.shape === 'rect' )
 					{
 						drawRect( obj, ctx );
+					}
+
+					if ( obj.shape === 'image-data' )
+					{
+						drawData( obj, ctx );
+					}
+
+					if ( obj.shape === 'image' )
+					{
+						drawImage( obj, ctx );
 					}
 				}
 			}
@@ -108,6 +129,16 @@ define(
 				ctx.fillRect( r.pos.elements[0], r.pos.elements[1], r.width, r.height );
 				ctx.fill();
 			}
+		}
+
+		function drawData( d, ctx )
+		{
+			ctx.putImageData( d.image_data, d.pos.elements[0], d.pos.elements[1] );
+		}
+
+		function drawImage( d, ctx )
+		{
+			ctx.drawImage( d.image, d.pos.elements[0], d.pos.elements[1] );
 		}
 
 		function clear( obj )

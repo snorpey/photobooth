@@ -6,11 +6,14 @@ define(
 		var supported_inputs = [ 'size' ];
 		var defaults = { size: 40 };
 
-		function getInstructions( data, width, height, values )
+		function getInstructions( image_data, input )
 		{
 			var items = { };
+			var width = image_data.width;
+			var height = image_data.height;
+			var data = image_data.data;
 			var len = data.length;
-			var size = values.size || defaults.size;
+			var size = input.size || defaults.size;
 			var multiplicator = 4 * size;
 
 			for ( var i = 0; i < len; i += 4 )

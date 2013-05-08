@@ -19,7 +19,8 @@ requirejs.config(
 			'slider'    : 'lib/html5slider'
 		},
 		shim: {
-			'masonry' : [ 'jquery' ]
+			'masonry' : [ 'jquery' ],
+			'colorpick'  : [ 'jquery' ]
 		}
 	}
 );

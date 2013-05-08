@@ -3,15 +3,25 @@ define(
 	[ 'vec' ],
 	function( vec )
 	{
-		var supported_inputs = [ 'size' ];
-		var defaults = { size: 40 };
+		var supported_inputs = [ 'background-color', 'size' ];
+		var defaults = { 'background-color': '#fff', size: 40 };
 
-		function getInstructions( data, width, height, values )
+		function getInstructions( image_data, input )
 		{
 			var items = { };
-			var len = data.length;
-			var size = values.size || defaults.size;
+			var size = input.size || defaults.size;
+			var width = image_data.width;
+			var height = image_data.height;
+			var len = image_data.data.length;
 			var multiplicator = 4 * size;
+
+			items['bg'] = {
+				pos: vec.create( 0, 0 ),
+				color: input['background-color'] || defaults['background-color'],
+				shape: 'rect',
+				width: width,
+				height: height
+			};
 
 			for ( var i = 0; i < len; i += 4 )
 			{
@@ -26,9 +36,9 @@ define(
 					var x = pixel % width;
 					var y = Math.floor( pixel / width );
 
-					var r = data[i];
-					var g = data[i + 1];
-					var b = data[i + 2];
+					var r = image_data.data[i];
+					var g = image_data.data[i + 1];
+					var b = image_data.data[i + 2];
 
 					var l = lightness( r, b, g );
 
