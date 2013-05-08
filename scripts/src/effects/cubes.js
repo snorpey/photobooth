@@ -6,16 +6,19 @@ define(
 		var supported_inputs = [ 'foreground-color', 'background-color', 'size' ];
 		var defaults = { 'foreground-color': '#ccc', 'background-color': '#fff', 'size': 8 };
 
-		function getInstructions( data, width, height, values )
+		function getInstructions( image_data, input )
 		{
 			var items = { };
+			var width = image_data.width;
+			var height = image_data.height;
+			var data = image_data.data;
 			var len = data.length;
-			var size = values.size || defaults.size;
+			var size = input.size || defaults.size;
 			var min_size = size * 0.2;
 
 			items['bg'] = {
 				pos: vec.create( 0, 0 ),
-				color: values['background-color'] || defaults['background-color'],
+				color: input['background-color'] || defaults['background-color'],
 				shape: 'rect',
 				width: width,
 				height: height
@@ -48,7 +51,7 @@ define(
 
 						items['cam-' + pixel] = {
 							pos: vec.create( x + half_delta, y + half_delta ),
-							color: values['foreground-color'] || defaults['foreground-color'],
+							color: input['foreground-color'] || defaults['foreground-color'],
 							shape: 'rect',
 							width: side,
 							height: side
