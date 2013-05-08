@@ -3,8 +3,8 @@ define(
 	[ 'vec' ],
 	function( vec )
 	{
-		var supported_inputs = [ 'brightness', 'saturation', 'hue' ];
-		var defaults = { 'brightness': 50, 'saturation': 50, 'hue': 0 };
+		var supported_inputs = [ 'brightness', 'saturation', 'hue', 'contrast' ];
+		var defaults = { 'brightness': 50, 'saturation': 50, 'hue': 0, 'contrast': 50 };
 		var tmp_ctx = document.createElement( 'canvas' ).getContext( '2d' );
 
 		function getInstructions( image_data, input )
@@ -17,13 +17,14 @@ define(
 
 			var brightness_input = ( input.brightness || defaults.brightness ) * 2 - 100;
 			var saturation_input = ( input.saturation || defaults.saturation ) * 2 - 100;
-			var sapia_input = ( input.sapia || defaults.sapia ) * 2 - 100;
+			var contrast_input = ( ( input.contrast || defaults.contrast ) * 2 - 50 ) * 0.02;
 			var hue_input = ( input.hue || defaults.hue );
 
 			for ( var i = 0; i < len; i += 4 )
 			{
 				setBrightness( i, copy.data, brightness_input );
 				setSaturation( i, copy.data, saturation_input );
+				setContrast( i, copy.data, contrast_input );
 				setHue( i, copy.data, hue_input );
 			}
 
@@ -52,9 +53,9 @@ define(
 			{
 				var l = Math.floor( 255 * ( brightness / 100 ) );
 
-				data[index] += getConstrainedValue( data[index] + l, 255 );
-				data[index + 1] += getConstrainedValue( data[index + 1] + l, 255 );
-				data[index + 2] += getConstrainedValue( data[index + 2] + l, 255 );
+				data[index] = getConstrainedValue( data[index] + l, 255 );
+				data[index + 1] = getConstrainedValue( data[index + 1] + l, 255 );
+				data[index + 2] = getConstrainedValue( data[index + 2] + l, 255 );
 			}
 		}
 
@@ -73,6 +74,25 @@ define(
 					}
 				}
 			}
+		}
+
+		function setContrast( index, data, contrast )
+		{
+			//if ( contrast !== 0 )
+			//{
+				for ( var i = 0; i < 3; i++ )
+				{
+					var value = data[index + i];
+
+					value /= 255;
+					value -= 0.5;
+					value *= contrast;
+					value += 0.5;
+					value *= 255;
+
+					data[index + i] = value;
+				}
+			//}
 		}
 
 		function setHue( index, data, hue )
