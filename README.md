@@ -1,24 +1,24 @@
-Photobooth
-==========
+photobooth
+===
 
 [![photobooth screenshot](https://dl.dropboxusercontent.com/u/1098704/Screenshots/github-photobooth.png)](http://snorpey.github.io/photobooth)
 
-This is a little experiment to explore the possibilities of the getUserMedia and canvas APIs in JavaScript. It allows to live edit your webcam feed and take screenshots. That's all.
+this is a little experiment to explore the possibilities of the getusermedia and canvas apis in javascript. it allows to live edit your webcam feed and take screenshots. that's all.
 
-Tested in Chrome, Firefox and Opera. Requires webcam to work.
+tested in chrome, firefox and opera. requires webcam to work. may be slow.
 
-[Online demo](http://snorpey.github.io/photobooth/)
+[online demo](http://snorpey.github.io/photobooth/)
 
-Things to do:
+things to do:
 ---
 
+* make canvas drawing code more flexible
 * fallback to using images if webcam is not available 
 * add more effects
-* add descriptiond
-* make canvas drawing code more flexible
-* speed up canvas drawing code
+* add inline documentation
+* speed up and optimize drawing code
 
-Third party libraries used in this project:
+third party libraries used in this project:
 ---
 
 * [jquery](http://jquery.com)
