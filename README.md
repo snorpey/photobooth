@@ -1,29 +1,33 @@
-Photobooth
-==========
+photobooth
+===
 
 [![photobooth screenshot](https://dl.dropboxusercontent.com/u/1098704/Screenshots/github-photobooth.png)](http://snorpey.github.io/photobooth)
 
-This is a little experiment to explore the possibilities of the getUserMedia and canvas APIs in JavaScript. It allows to live edit your webcam feed and take screenshots. That's all.
+this is a little experiment to explore the possibilities of the getusermedia and canvas apis in javascript. it allows to live edit your webcam feed and take screenshots. that's all.
 
-Tested in Chrome, Firefox and Opera. Requires webcam to work.
+tested in chrome, firefox and opera. requires webcam to work. may be slow.
 
-[Online demo](http://snorpey.github.io/photobooth/)
+[online demo](http://snorpey.github.io/photobooth/)
 
-Things to do:
+things to do:
 ---
 
+* make canvas drawing code more flexible
 * fallback to using images if webcam is not available 
 * add more effects
-* add descriptiond
-* make canvas drawing code more flexible
-* speed up canvas drawing code
+* add inline documentation
+* speed up and optimize drawing code
 
-Third party libraries used in this project:
+third party libraries used in this project:
 ---
 
-* [jquery](http://jquery.com)
-* [require js](http://requirejs.org/)
-* [js signals](http://millermedeiros.github.io/js-signals/)
-* [sylvester](http://sylvester.jcoglan.com/)
-* [spectrum](http://bgrins.github.io/spectrum/)
-* [html5slider](http://frankyan.com/labs/html5slider/)
+* [spectrum](http://bgrins.github.io/spectrum/) by [bgrins](https://github.com/bgrins), MIT license
+* [sylvester](http://sylvester.jcoglan.com/) by [jcoglan](https://github.com/jcoglan), MIT license
+* [html5slider](http://frankyan.com/labs/html5slider/) by [fryn](https://github.com/fryn), MIT license
+* [jquery](http://jquery.com), by the [jquery foundation](https://jquery.org/team/), MIT license
+* [require js](http://requirejs.org/), by [jrburke](jrburke), BSD & MIT license
+* [js signals](http://millermedeiros.github.io/js-signals/) by [millermedeiros](https://github.com/millermedeiros), MIT license
+
+license
+---
+[MIT License](http://www.opensource.org/licenses/mit-license.php)
