@@ -21,9 +21,13 @@ things to do:
 third party libraries used in this project:
 ---
 
-* [jquery](http://jquery.com)
-* [require js](http://requirejs.org/)
-* [js signals](http://millermedeiros.github.io/js-signals/)
-* [sylvester](http://sylvester.jcoglan.com/)
-* [spectrum](http://bgrins.github.io/spectrum/)
-* [html5slider](http://frankyan.com/labs/html5slider/)
+* [spectrum](http://bgrins.github.io/spectrum/) by [bgrins](https://github.com/bgrins), MIT license
+* [sylvester](http://sylvester.jcoglan.com/) by [jcoglan](https://github.com/jcoglan), MIT license
+* [html5slider](http://frankyan.com/labs/html5slider/) by [fryn](https://github.com/fryn), MIT license
+* [jquery](http://jquery.com), by the [jquery foundation](https://jquery.org/team/), MIT license
+* [require js](http://requirejs.org/), by [jrburke](jrburke), BSD & MIT license
+* [js signals](http://millermedeiros.github.io/js-signals/) by [millermedeiros](https://github.com/millermedeiros), MIT license
+
+license
+---
+[MIT License](http://www.opensource.org/licenses/mit-license.php)
