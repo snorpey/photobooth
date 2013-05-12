@@ -14,7 +14,8 @@ body
 {
 	font-family: sans-serif;
 	font-size: 12px;
-	color: #333;
+	color: #666;
+    line-height: 18px;
 	overflow: hidden;
 }
 
@@ -59,6 +60,7 @@ a.button
 		display: inline;
 		font-weight: bold;
 		font-size: 12px;
+        color: #333;
 	}
 
 .controls
