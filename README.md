@@ -30,4 +30,4 @@ third party libraries used in this project:
 
 license
 ---
-[MIT License](http://www.opensource.org/licenses/mit-license.php)
+[MIT License](LICENSE)
